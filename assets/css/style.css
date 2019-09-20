@@ -1,3 +1,9 @@
+body{
+  cursor: url(../images/tomlos.cur), auto;
+}
+#wpwrap{
+  pointer-events: none;
+}
 .elekmodal{
   position: fixed;
   left:0;
@@ -5,11 +11,7 @@
   background:rgba(0,0,0,0.25);
   width:100%;
   height:100%;
-}
-
-.elekmodal div{
-  width:100%;
-  height:100%;
+  z-index: 9999;
 }
 
 .elekmodal iframe{
@@ -19,6 +21,7 @@
   bottom: 0;
   top: 0;
   position: absolute;
+  z-index: 10;
 }
 
 .elekimg{
@@ -51,9 +54,15 @@
 }
 .elekimg-5{
   background: url(../images/elekz4.jpg);
+  -webkit-animation:run 4s linear infinite;
+  -moz-animation:run 4s linear infinite;
+  animation:run 4s linear infinite;
 }
 .elekimg-6{
   background: url(../images/elekz5.jpg);
+  -webkit-animation:run2 4s linear infinite;
+  -moz-animation:run2 4s linear infinite;
+  animation:run2 4s linear infinite;
 }
 
 .elekimg.right{
@@ -64,16 +73,6 @@
 .elekimg.top{
   bottom:initial;
   top:0;
-}
-
-@keyframes circle {
-  from { transform:rotate(0deg); }
-  to { transform:rotate(360deg); }
-}
-
-@keyframes inner-circle {
-  from { transform:rotate(0deg); }
-  to { transform:rotate(-360deg); }
 }
 
 .elekcontainer-old {
@@ -88,6 +87,8 @@
   transform-origin:50% 200px;
   left:50%;
   top:50%;
+  z-index: 9;
+  display: contents;
 }
 
 .elekcontainer {
@@ -95,13 +96,133 @@
   animation: circle 5s linear infinite;
   transform-origin:50% 200px;
   left:50%;
-  top:50%;
+  top:30%;
+  position: fixed;
+}
+
+.elekcontainer .elekimg{
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .elekcontainer-old div {
   animation: inner-circle 5s linear infinite;
 }
 
+/* leaf animations */
+
+#leaves {
+  position: fixed;
+  top:-50px;
+  width:100%;
+  text-align: right;
+  z-index: 911911;
+}
+
+#leaves .leaf {
+    display: inline-block;
+    width: 200px;
+    height: 150px;
+    background-image: url(../images/tomlos.png);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transform: skew(20deg);
+    z-index: 1;
+    -webkit-animation: falling 5s 0s infinite;
+}
+
+#leaves .leaf:nth-of-type(2n) { -webkit-animation: falling2 5s 0s infinite; }
+#leaves .leaf:nth-of-type(3n) { -webkit-animation: falling3 5s 0s infinite; }
+
+#leaves .leaf:nth-of-type(n)   { -webkit-animation-delay: 1.9s;}
+#leaves .leaf:nth-of-type(2n)  { -webkit-animation-delay: 3.9s;}
+#leaves .leaf:nth-of-type(3n)  { -webkit-animation-delay: 2.3s;}
+#leaves .leaf:nth-of-type(4n)  { -webkit-animation-delay: 4.4s;}
+#leaves .leaf:nth-of-type(5n)  { -webkit-animation-delay: 5s;  }
+#leaves .leaf:nth-of-type(6n)  { -webkit-animation-delay: 3.5s;}
+#leaves .leaf:nth-of-type(7n)  { -webkit-animation-delay: 2.8s;}
+#leaves .leaf:nth-of-type(8n)  { -webkit-animation-delay: 1.5s;}
+#leaves .leaf:nth-of-type(9n)  { -webkit-animation-delay: 3.3s;}
+#leaves .leaf:nth-of-type(10n) { -webkit-animation-delay: 2.5s;}
+#leaves .leaf:nth-of-type(11n) { -webkit-animation-delay: 1.2s;}
+#leaves .leaf:nth-of-type(12n) { -webkit-animation-delay: 4.1s;}
+#leaves .leaf:nth-of-type(13n) { -webkit-animation-delay: 1s;  }
+#leaves .leaf:nth-of-type(14n) { -webkit-animation-delay: 4.7s;}
+#leaves .leaf:nth-of-type(15n) { -webkit-animation-delay: 3s;  }
+
+#leaves .leaf:nth-of-type(n)    { opacity: .7;}
+#leaves .leaf:nth-of-type(3n+1)  { opacity: .5;}
+#leaves .leaf:nth-of-type(3n+2)  { opacity: .3;}
+
+#leaves .leaf:nth-of-type(n)    {transform: rotate(180deg);}
+
+
+#leaves .leaf:nth-of-type(n) { -webkit-animation-timing-function:ease-in-out;}
+
+@-webkit-keyframes falling { 
+  0% {
+    -webkit-transform:
+      translate3d(300,0,0)
+      rotate(0deg);
+  }
+  100% {
+    -webkit-transform:
+      translate3d(-350px,700px,0)
+      rotate(90deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes falling3 {
+  0% {
+    -webkit-transform:
+      translate3d(0,0,0)
+      rotate(-20deg);
+  }
+  100% {
+    -webkit-transform:
+      translate3d(-230px,640px,0)
+      rotate(-70deg);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes falling2 {
+  0% {
+    -webkit-transform:
+      translate3d(0,0,0)
+      rotate(90deg);
+  }
+  100% {
+    -webkit-transform:
+      translate3d(-400px,680px,0)
+      rotate(0deg);
+    opacity: 0;
+  }
+}
+
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@keyframes circle {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(360deg); }
+}
+
+@keyframes inner-circle {
+  from { transform:rotate(0deg); }
+  to { transform:rotate(-360deg); }
+}
+
+@-webkit-keyframes run {
+  0% { left: 0;}
+  50%{ left : 100%;}
+  100%{ left: 0;}
+}
+@-webkit-keyframes run2 {
+  0% { bottom: 0;}
+  50%{ bottom : 100%;}
+  100%{ bottom: 0;}
+}
