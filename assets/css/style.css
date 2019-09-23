@@ -21,7 +21,12 @@ body{
   bottom: 0;
   top: 0;
   position: absolute;
-  z-index: 10;
+  z-index: 1;
+}
+
+.tenor-gif-embed{
+  z-index: 2;
+  height: 100%;
 }
 
 .elekimg{
@@ -54,15 +59,15 @@ body{
 }
 .elekimg-5{
   background: url(../images/elekz4.jpg);
-  -webkit-animation:run 4s linear infinite;
-  -moz-animation:run 4s linear infinite;
-  animation:run 4s linear infinite;
+  -webkit-animation:run 4s cubic-bezier(0.26, 0.73, 0.77, 0.48) infinite;
+  -moz-animation:run 4s cubic-bezier(0.26, 0.73, 0.77, 0.48) infinite;
+  animation:run 4s cubic-bezier(0.26, 0.73, 0.77, 0.48) infinite;
 }
 .elekimg-6{
   background: url(../images/elekz5.jpg);
-  -webkit-animation:run2 4s linear infinite;
-  -moz-animation:run2 4s linear infinite;
-  animation:run2 4s linear infinite;
+  -webkit-animation:run2 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  -moz-animation:run2 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation:run2 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .elekimg.right{
@@ -98,6 +103,7 @@ body{
   left:50%;
   top:30%;
   position: fixed;
+  z-index: 3;
 }
 
 .elekcontainer .elekimg{
@@ -222,7 +228,7 @@ body{
   100%{ left: 0;}
 }
 @-webkit-keyframes run2 {
-  0% { bottom: 0;}
-  50%{ bottom : 100%;}
-  100%{ bottom: 0;}
+  0% { bottom: 100%;}
+  50%{ bottom : 0;}
+  100%{ bottom: 100%;}
 }

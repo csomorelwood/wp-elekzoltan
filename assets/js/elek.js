@@ -18,3 +18,11 @@ console.log('$$ |      $$ |      $$ |      $$ |\\$$\\         $$  /    $$ |  $$ 
 console.log('$$$$$$$$\\ $$$$$$$$\\ $$$$$$$$\\ $$ | \\$$\\       $$$$$$$$\\  $$$$$$  |$$$$$$$$\\ $$ |   $$ |  $$ |    $$ | \\$$ |')
 console.log('\\________|\\________|\\________|\\__|  \\__|      \\________| \\______/ \\________|\\__|   \\__|  \\__|    \\__|  \\__|')
 alert('Elek Zoltán Activated!')
+
+const tomlosK=document.getElementById("tomloskurzor");
+const body=document.getElementsByTagName("body")[0];
+if (tomlosK.checked == true){
+    body.style='cursor:url(../images/tomlos.cur), auto';
+  } else {
+    body.style='cursor:auto';
+}
