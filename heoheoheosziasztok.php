@@ -1,30 +1,30 @@
 <?php
 /**
-* Plugin Name: Hello hello sziasztok
-* Plugin URI: https://www.youtube.com/channel/UCg9Wtxv8U5wndTTjJulIjeA
-* Description: 
+* Plugin Name: Heoheoheosziasztok
+* Plugin URI: https://www.youtube.com/channel/UCnW0zKQIPp11APUWRYBDbtA
+* Description: Elek Zoltán összecsokizza a WP-t
 * Version: 1.0
-* Author: Elek Zoltán
-* Author URI: https://www.youtube.com/channel/UCg9Wtxv8U5wndTTjJulIjeA
+* Author: Csömör
+* Author URI: https://profiles.wordpress.org/csomorelwood/
 **/
 
-function register_the_magic() {
+function register_the_unlimited_power_of_elek_zoltan_raised_by_csomorelwood() {
   wp_register_style('hhh', plugins_url('assets/css/style.css',__FILE__ ));
   wp_enqueue_style('hhh');
   
 }
 
-add_action( 'init','register_the_magic');
+add_action( 'init','register_the_unlimited_power_of_elek_zoltan_raised_by_csomorelwood');
 
-add_action( 'wp_footer', 'using_front_page_conditional_tag' );
-function using_front_page_conditional_tag() {
+add_action( 'wp_footer', 'heoheoheoszaisztok_add_wp_footer_scripts_by_csomorelwood' );
+function heoheoheoszaisztok_add_wp_footer_scripts_by_csomorelwood() {
 if ( is_page() ) {    
-    my_admin_footer_function();
+    heoheo_admin_footer_function_by_csomorelwood();
    }
 }
 
-add_action('admin_footer', 'my_admin_footer_function');
-function my_admin_footer_function() {
+add_action('admin_footer', 'heoheo_admin_footer_function_by_csomorelwood');
+function heoheo_admin_footer_function_by_csomorelwood() {
   echo '
   <div id="leaves">
     <div class="leaf"></div>
@@ -80,18 +80,16 @@ function my_admin_footer_function() {
   }
 
   if(get_option('csodagif_cb')==1){
-    echo '
-    <div class="tenor-gif-embed" data-postid="14316031" data-share-method="host" data-width="100%" data-aspect-ratio="1.7777777777777777"><a href="https://tenor.com/view/elek-zoltan-elek-zolt%c3%a1n-elek-zoltan-love-elek-zolt%c3%a1n-sz%c3%adv-elek-sz%c3%adv-gif-14316031">Elek Zoltan Elek Zoltán GIF</a> from <a href="https://tenor.com/search/elekzoltan-gifs">Elekzoltan GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-    ';
+    echo '<img src="'.plugin_dir_url( __FILE__ ) . '/assets/images/elekgif.gif'.'">';
   }
   echo '</div>';
 }
 
-function Elek_script() {
+function magical_script_from_the_god_himself_csomorelwood() {
   wp_register_script('elek_script', plugin_dir_url( __FILE__ ) . '/assets/js/elek.js' );
   wp_enqueue_script( 'elek_script');
  }
- add_action('init', 'Elek_script');
+ add_action('init', 'magical_script_from_the_god_himself_csomorelwood');
 
 function heoheo_register_settings() {
   register_setting( 'heoheo_options_group', 'elekzene_cb');
